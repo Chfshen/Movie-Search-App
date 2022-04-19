@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(collectionResourceRel = "movies", path = "movieDB")
-public interface MovieRepository extends MongoRepository<MovieDB, String>{
+public interface MovieRepository extends MongoRepository<MovieDB, String>, MovieOperationRepository{
 
     @Query("{id:?0}")
     MovieDB findOneById(String id);

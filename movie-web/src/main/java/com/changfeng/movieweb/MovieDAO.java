@@ -78,4 +78,22 @@ public class MovieDAO {
         
         return movie;
     }
+
+    public Movie getMovieAndLike(String id) {
+        Movie movie = new Movie();
+        MovieDB movieDB = movieRepo.findByIdAndLike(id);
+        movie.setLike(movieDB.getLike());
+        movie.setDislike(movieDB.getDislike());
+        movie.setId(id);
+        return movie;
+    }
+
+    public Movie getMovieAndDislike(String id) {
+        Movie movie = new Movie();
+        MovieDB movieDB = movieRepo.findByIdAndDislike(id);
+        movie.setLike(movieDB.getLike());
+        movie.setDislike(movieDB.getDislike());
+        movie.setId(id);
+        return movie;
+    }
 }
